@@ -8,9 +8,9 @@ text = sys.argv[2]
 
 # Number Puzzle
 if number % 2 == 0:
-    number_result = f"The number {number} is even. Its square root is {math.sqrt(number)}."
+    number_result = f"- The number {number} is even. Its square root is {math.sqrt(number)}."
 else:
-    number_result = f"The number {number} is odd. Its cube is {number ** 3}."
+    number_result = f"- The number {number} is odd. Its cube is {number ** 3}."
 
 # Text Puzzle
 binary_text = ' '.join(format(ord(char), '08b') for char in text)
@@ -29,20 +29,35 @@ while attempts < 5:
         found = True
         break
     elif guess > secret_number:
-        guess_log.append(f"Attempt {attempts}: {guess} (Too high!)")
+        guess_log.append(f"- Attempt {attempts}: {guess} (Too high!)")
     else:
-        guess_log.append(f"Attempt {attempts}: {guess} (Too low!)")
+        guess_log.append(f"- Attempt {attempts}: {guess} (Too low!)")
 
 if found:
-    guess_log.append(f"Attempt {attempts}: {secret_number} (Correct!)")
-    treasure_result = "You found the treasure!"
+    guess_log.append(f"- Attempt {attempts}: {secret_number} (Correct!)")
+    treasure_result = "- You found the treasure!"
 else:
-    treasure_result = "You did not find the treasure."
+    treasure_result = "- You did not find the treasure."
 
 # Result
-print(number_result)
-print(f"Binary: {binary_text}")
-print(f"Vowel Count: {vowel_count}")
-print("\nTreasure Hunt:")
-print("\n".join(guess_log))
-print(treasure_result)
+# print(number_result)
+# print(f"Binary: {binary_text}")
+# print(f"Vowel Count: {vowel_count}")
+# print("\nTreasure Hunt:")
+# print("\n".join(guess_log))
+# print(treasure_result)
+
+result = "\n".join([
+    "Number Puzzle:",
+    number_result,
+    "",
+    "Text Puzzle:",
+    f"- Binary: {binary_text}",
+    f"- Vowel Count: {vowel_count}",
+    "",
+    "Treasure Hunt:",
+    "\n".join(guess_log),
+    treasure_result
+])
+
+print(result)
