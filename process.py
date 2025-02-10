@@ -39,14 +39,6 @@ if found:
 else:
     treasure_result = "- You did not find the treasure."
 
-# Result
-# print(number_result)
-# print(f"Binary: {binary_text}")
-# print(f"Vowel Count: {vowel_count}")
-# print("\nTreasure Hunt:")
-# print("\n".join(guess_log))
-# print(treasure_result)
-
 result = "\n".join([
     "Number Puzzle:",
     number_result,
